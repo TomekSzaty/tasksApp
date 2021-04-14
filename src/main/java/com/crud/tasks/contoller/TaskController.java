@@ -14,6 +14,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/v1/task")
 @RequiredArgsConstructor
+@CrossOrigin(origins = "*")
 public class TaskController {
 
     private final DbService service;
@@ -32,7 +33,7 @@ public class TaskController {
         );
     }
 
-    @RequestMapping(method = RequestMethod.DELETE, value = "delete")
+    @RequestMapping(method = RequestMethod.DELETE, value = "deleteTask")
     public void deleteTask(@RequestParam Long taskId) {
         service.deleteTask(taskId);
     }
