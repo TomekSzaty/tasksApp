@@ -1,11 +1,15 @@
 plugins {
-	id 'org.springframework.boot' version '2.4.4'
+	/*id 'org.springframework.boot' version '2.4.4'
 	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+	id 'java'*/
+
+	id 'org.springframework.boot' version '2.3.0.RELEASE'
+	id 'io.spring.dependency-management' version '1.0.9.RELEASE'
 	id 'java'
+
 	id "io.freefair.lombok" version "5.3.0"
 	// id 'war'
 }
-
 group = 'com.crud'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '11'
@@ -19,13 +23,15 @@ dependencies {
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
 	implementation 'org.springframework.boot:spring-boot-starter-data-jdbc'
-	//implementation 'org.springframework.boot:spring-boot-starter-data-validation'
-	//runtimeOnly 'mysql:mysql-connector-java'
-	runtimeOnly 'org.postgresql:postgresql'
-
+	runtimeOnly 'mysql:mysql-connector-java'
+	compileOnly 'org.projectlombok:lombok'
+	annotationProcessor 'org.projectlombok:lombok'
+	testCompileOnly 'org.projectlombok:lombok'
+	testAnnotationProcessor 'org.projectlombok:lombok'
+	//runtimeOnly 'org.postgresql:postgresql'
 	//providedRuntime 'org.springframework.boot:spring-boot-starter-tomcat'
+	//implementation 'org.springframework.boot:spring-boot-starter-data-validation'
 }
-
 test {
 	useJUnitPlatform()
 }
