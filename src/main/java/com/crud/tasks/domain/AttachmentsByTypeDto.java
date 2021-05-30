@@ -3,16 +3,11 @@ package com.crud.tasks.domain;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
 @Data
-@NoArgsConstructor
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class TrelloCreatedWithCard {
+public class AttachmentsByTypeDto {
 
-    @JsonProperty("board")
-    private int board;
-
-    @JsonProperty("card")
-    private int card;
+    @JsonProperty("trello")
+    private TrelloDto trelloDto;
 }
