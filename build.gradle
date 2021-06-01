@@ -8,7 +8,7 @@ plugins {
 	id 'java'
 
 	id "io.freefair.lombok" version "5.3.0"
-	// id 'war'
+	//id 'war'
 }
 group = 'com.crud'
 version = '0.0.1-SNAPSHOT'
@@ -23,12 +23,12 @@ dependencies {
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
 	implementation 'org.springframework.boot:spring-boot-starter-data-jdbc'
-	runtimeOnly 'mysql:mysql-connector-java'
+	//runtimeOnly 'mysql:mysql-connector-java'
 	compileOnly 'org.projectlombok:lombok'
 	annotationProcessor 'org.projectlombok:lombok'
 	testCompileOnly 'org.projectlombok:lombok'
 	testAnnotationProcessor 'org.projectlombok:lombok'
-	//runtimeOnly 'org.postgresql:postgresql'
+	runtimeOnly 'org.postgresql:postgresql'
 	//providedRuntime 'org.springframework.boot:spring-boot-starter-tomcat'
 	//implementation 'org.springframework.boot:spring-boot-starter-data-validation'
 }
