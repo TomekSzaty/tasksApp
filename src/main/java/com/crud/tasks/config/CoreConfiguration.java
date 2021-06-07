@@ -2,9 +2,6 @@ package com.crud.tasks.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.http.MediaType;
-import org.springframework.http.converter.HttpMessageConverter;
-import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
 import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.web.client.RestTemplate;
 import springfox.documentation.builders.PathSelectors;
@@ -30,7 +27,6 @@ public class CoreConfiguration {
 
     @Bean
     public RestTemplate restTemplate() {
-        final RestTemplate restTemplate = new RestTemplate();
-        return restTemplate;
+        return new RestTemplate();
     }
 }
