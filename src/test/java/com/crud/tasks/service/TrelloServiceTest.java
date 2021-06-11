@@ -1,9 +1,8 @@
 package com.crud.tasks.service;
 
 import com.crud.tasks.config.AdminConfig;
-import com.crud.tasks.domain.CreatedTrelloCardDto;
-import com.crud.tasks.domain.Mail;
-import com.crud.tasks.domain.TrelloCardDto;
+import com.crud.tasks.domain.*;
+import com.crud.tasks.mapper.TrelloMapper;
 import com.crud.tasks.trello.client.TrelloClient;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -29,6 +28,9 @@ public class TrelloServiceTest {
 
     @Mock
     private AdminConfig adminConfig;
+
+    @Mock
+    private TrelloMapper trelloMapper;
 
     @Test
     void shouldNotCreateTrelloCard() {
@@ -63,4 +65,5 @@ public class TrelloServiceTest {
         assertEquals("name", newCard.getName());
         assertEquals("http://test.com", newCard.getShortUrl());
     }
+
 }
