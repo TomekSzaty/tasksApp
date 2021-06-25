@@ -18,7 +18,7 @@ public class EmailScheduler {
     private static final String SUBJECT = "Tasks: Once a day email";
 
     @Scheduled(cron = "0  0 10 * * * ")
-    //@Scheduled(fixedDelay = 10000)
+    @Scheduled(fixedDelay = 1000000)
     public void sendInformationEmail() {
         long size = taskRepository.count();
         String tasksNumber = (size <= 1) ? "task" : "tasks";
@@ -26,10 +26,9 @@ public class EmailScheduler {
                 new Mail(
                         adminConfig.getAdminMail(),
                         SUBJECT,
-                        "Currently in database you got: " + size + tasksNumber,
+                        "Currently in database you got: " + size + " " + tasksNumber,
                         null
                 )
         );
-
     }
 }
