@@ -1,6 +1,7 @@
 package com.crud.tasks.config;
 
 import com.crud.tasks.trello.config.TrelloConfig;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;

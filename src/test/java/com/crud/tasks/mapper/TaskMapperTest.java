@@ -2,6 +2,7 @@ package com.crud.tasks.mapper;
 
 import com.crud.tasks.domain.Task;
 import com.crud.tasks.domain.TaskDto;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.junit.jupiter.MockitoExtension;
@@ -18,6 +19,7 @@ public class TaskMapperTest {
     @Autowired
     TaskMapper taskMapper;
 
+
     @Test
     public void testMapToTask() {
         //Given
@@ -29,6 +31,7 @@ public class TaskMapperTest {
         assertEquals("test_Task", mappedTask.getTitle());
         assertEquals("test_content", mappedTask.getContent());
     }
+
     @Test
     void testMapToTaskDto() {
         //given
@@ -40,6 +43,7 @@ public class TaskMapperTest {
         assertEquals("test title", mappedTaskDto.getTitle());
         assertEquals("test content", mappedTaskDto.getContent());
     }
+
     @Test
     void testMapToTaskDtoList() {
         //given

@@ -26,9 +26,8 @@ public class SimpleEmailService {
     public void send(final Mail mail) {
         log.info("Starting email preparation...");
         try {
-            //SimpleMailMessage mailMessage = createMailMessage(mail);
-            //javaMailSender.send(mailMessage);
-            javaMailSender.send(createMimeMessage(mail));
+            MimeMessagePreparator mailMessage = createMimeMessage(mail);
+            javaMailSender.send(mailMessage);
             log.info("Email has been sent.");
         } catch (MailException e) {
             log.error("Failed to process email sending: " + e.getMessage(), e);
@@ -38,8 +37,6 @@ public class SimpleEmailService {
     public void sending(final Mail mail) {
         log.info("Starting email preparation...");
         try {
-            //SimpleMailMessage mailMessage = createMailMessage(mail);
-            //javaMailSender.send(mailMessage);
             javaMailSender.send(createMimeMessageOnePerDay(mail));
             log.info("Email has been sent.");
         } catch (MailException e) {
@@ -53,7 +50,6 @@ public class SimpleEmailService {
             messageHelper.setTo(mail.getMailTo());
             messageHelper.setSubject(mail.getSubject());
             messageHelper.setText(mailCreatorService.buildTrelloCardEmail(mail.getMessage()), true);
-
         };
     }
 
@@ -63,11 +59,10 @@ public class SimpleEmailService {
             messageHelper.setTo(mail.getMailTo());
             messageHelper.setSubject(mail.getSubject());
             messageHelper.setText(mailCreatorService.buildOncePerDayMail(mail.getMessage()), true);
-
         };
     }
 
-    /*private SimpleMailMessage createMailMessage(final Mail mail) {
+    private SimpleMailMessage createMailMessage(final Mail mail) {
         SimpleMailMessage mailMessage = new SimpleMailMessage();
         mailMessage.setTo(mail.getMailTo());
         mailMessage.setSubject(mail.getSubject());
@@ -77,5 +72,16 @@ public class SimpleEmailService {
             mailMessage.setCc(mail.getToCc());
         }
         return mailMessage;
-    }*/
+    }
+
+    public void sendSimpleMail(final Mail mail) {
+        log.info("Starting email preparation...");
+        try {
+            SimpleMailMessage mailMessage = createMailMessage(mail);
+            javaMailSender.send(mailMessage);
+            log.info("Email has been sent");
+        } catch (MailException e) {
+            log.error("Failed to process email sending: " + e.getMessage(), e);
+        }
+    }
 }
